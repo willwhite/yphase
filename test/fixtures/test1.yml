@@ -1,0 +1,12 @@
+download:
+  - echo "downloading"
+  - echo "downloaded"
+configure:
+  - echo "configuring"
+  - echo "configured"
+build:
+  - echo "building"
+  - echo "built"
+install:
+  - echo "installing"
+  - echo "installed"

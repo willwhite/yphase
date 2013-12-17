@@ -1,0 +1,22 @@
+{
+  "name": "yphase",
+  "version": "0.0.0",
+  "description": "Extendible scripting with YAML config files.",
+  "main": "index.js",
+  "dependencies": {
+    "js-yaml": "~3.0.0",
+    "optimist": "~0.6.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.15.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+    "yphase": "./bin/yphase"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
