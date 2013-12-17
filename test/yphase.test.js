@@ -24,7 +24,7 @@ describe('yphase', function() {
             done();
         });
     });
-    it('should complain unknown phases', function(done) {
+    it('should complain about unknown phases', function(done) {
         yphase(__dirname + '/fixtures/test1.yml', 'fake', function(err, stdout, stderr) {
             assert.equal(err, 'Error: Phase not found');
             done();
