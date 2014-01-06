@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var yphase = require('../index');
 
 var argv = require('optimist').argv;
