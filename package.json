@@ -16,7 +16,10 @@
   "bin": {
     "yphase": "./bin/yphase"
   },
-  "repository": "",
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/willwhite/yphase.git"
+  },
+  "author": "Will White <will@mapbox.com>",
   "license": "BSD"
 }
