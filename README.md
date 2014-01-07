@@ -27,5 +27,5 @@ yphase <file 1> [file n] <phase>
 ```
 
 ```
-yphase path/to/test1.yml /other/path/to/test2.yml install
+yphase path/to/test1.yml /other/path/to/test2.yml install | bash
 ```
