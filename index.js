@@ -1,6 +1,5 @@
 var yaml = require('js-yaml');
 var fs = require('fs');
-var exec = require('child_process').exec;
 
 module.exports = function(files, phase, callback) {
     if (!phase) return callback(new Error('Phase not specified'));
@@ -11,12 +10,16 @@ module.exports = function(files, phase, callback) {
         if (memo) return memo;
         try {
             var doc = yaml.safeLoad(fs.readFileSync(file, 'utf8'));
-        } catch (e) { return callback(e); }
+        } catch (e) {
+            memo = e;
+            return memo;
+        }
         if (phase in doc) memo = doc[phase];
         return memo;
     }, null);
 
+    if (code instanceof Error) return callback(code);
     if (!code) return callback(new Error('Phase not found'));
 
-    exec(code.join('\n'), callback);
+    callback(null, code.join('\n'));
 };
