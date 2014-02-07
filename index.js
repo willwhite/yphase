@@ -19,6 +19,7 @@ module.exports = function(files, phase, callback) {
     }, null) || [];
 
     if (code instanceof Error) return callback(code);
+    if (!(code instanceof Array)) code = [code];
     code = code.join('\n');
     if (code) code += '\n';
 

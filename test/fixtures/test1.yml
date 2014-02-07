@@ -10,3 +10,4 @@ build:
 install:
   - echo "installing"
   - echo "installed"
+one_liner: some_command

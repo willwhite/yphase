@@ -29,4 +29,11 @@ describe('yphase', function() {
             done();
         });
     });
+    it('should support single string values', function(done) {
+        yphase(__dirname + '/fixtures/test1.yml', 'one_liner', function(err, result) {
+            assert.ifError(err);
+            assert.equal(result, 'some_command\n');
+            done();
+        });
+    });
 });
