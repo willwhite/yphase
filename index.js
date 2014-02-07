@@ -16,10 +16,9 @@ module.exports = function(files, phase, callback) {
         }
         if (phase in doc) memo = doc[phase];
         return memo;
-    }, null);
+    }, null) || [];
 
     if (code instanceof Error) return callback(code);
-    if (!code) return callback(new Error('Phase not found'));
 
     callback(null, code.join('\n'));
 };

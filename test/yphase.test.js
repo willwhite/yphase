@@ -22,9 +22,10 @@ describe('yphase', function() {
             done();
         });
     });
-    it('should complain about unknown phases', function(done) {
+    it('should not complain about unknown phases', function(done) {
         yphase(__dirname + '/fixtures/test1.yml', 'fake', function(err, result) {
-            assert.equal(err, 'Error: Phase not found');
+            assert.ifError(err);
+            assert.equal(result, '');
             done();
         });
     });
