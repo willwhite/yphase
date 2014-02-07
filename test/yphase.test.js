@@ -5,14 +5,14 @@ describe('yphase', function() {
     it('should process a single file', function(done) {
         yphase(__dirname + '/fixtures/test1.yml', 'configure', function(err, result) {
             assert.ifError(err);
-            assert.equal(result, 'echo \"configuring\"\necho \"configured\"');
+            assert.equal(result, 'echo \"configuring\"\necho \"configured\"\n');
             done();
         });
     });
     it('should process multiple files', function(done) {
         yphase([__dirname + '/fixtures/test1.yml', __dirname + '/fixtures/test2.yml'], 'configure', function(err, result) {
             assert.ifError(err);
-            assert.equal(result, 'echo \"override\"');
+            assert.equal(result, 'echo \"override\"\n');
             done();
         });
     });
@@ -22,9 +22,17 @@ describe('yphase', function() {
             done();
         });
     });
-    it('should complain about unknown phases', function(done) {
+    it('should not complain about unknown phases', function(done) {
         yphase(__dirname + '/fixtures/test1.yml', 'fake', function(err, result) {
-            assert.equal(err, 'Error: Phase not found');
+            assert.ifError(err);
+            assert.equal(result, '');
+            done();
+        });
+    });
+    it('should support single string values', function(done) {
+        yphase(__dirname + '/fixtures/test1.yml', 'one_liner', function(err, result) {
+            assert.ifError(err);
+            assert.equal(result, 'some_command\n');
             done();
         });
     });
